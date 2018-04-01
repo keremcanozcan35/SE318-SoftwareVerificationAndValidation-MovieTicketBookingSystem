@@ -1,6 +1,4 @@
 package com.company;
-
-
 import java.util.Scanner;
 
 public class Login {
@@ -11,8 +9,13 @@ public class Login {
     private String newpassword;
     private String newaddress;
     private String decision;
+    private String adminusername = "admin";
+    private String adminpassword = "adminpw";
+    private String username = "customer";
+    private String password = "customerpw";
+    private String LoginOrRegister;
 
-    void Menu(){
+    private void Menu(){
         scan = new Scanner(System.in);
         System.out.println("Please select the sub-menu number: ");
         System.out.println("1- Add a new movie");
@@ -21,7 +24,7 @@ public class Login {
         decision = scan.next();
     }
 
-    void CreateCustomer(){
+    private void CreateCustomer(){
         scan = new Scanner(System.in);
         System.out.println("Write your username: ");
         newusername = scan.next();
@@ -31,31 +34,49 @@ public class Login {
         newaddress = scan.next();
     }
 
-    public static void main(String[] args) {
-        String adminusername = "admin";
-        String adminpassword = "adminpw";
-        String username = "customer";
-        String password = "customerpw";
+    private void LoginPrompt(){
+        scan = new Scanner(System.in);
 
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("Log in:");
+        System.out.println("Login");
         System.out.println("username: ");
         username = scan.next();
 
         System.out.println("password: ");
         password = scan.next();
 
-        if (adminusername.equals("admin") && adminpassword.equals("adminpw")) {
+        if (username.equals("admin") && password.equals("adminpw")) {
             System.out.println("Welcome, Admin!");
-        }
-
-        if (username.equals("customer") && password.equals("customerpw"))
-            System.out.println("Welcome, Admin!");
-        {
             System.out.println("You are logged in");
-            System.out.println("Welcome the system ");
-
+            System.out.println("Welcome the system");
+            Menu();
         }
+
+        if (username.equals("customer") && password.equals("customerpw")){
+            System.out.println("Welcome, Customer!");
+            System.out.println("You are logged in");
+            System.out.println("Welcome the system");
+        }
+        else{
+            System.out.println("Wrong Login! Please check your login informations!");
+            LoginPrompt();
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Login login = new Login();
+        String LoginOrRegister;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Press 1 to login,\nPress 2 to register");
+        LoginOrRegister = scanner.next();
+        if (LoginOrRegister.equals("1"))
+            login.LoginPrompt();
+        if (LoginOrRegister.equals("2")) {
+            login.CreateCustomer();
+            login.LoginPrompt();
+        }
+        else
+            System.out.println("You should type 1 or 2. Aborting...");
     }
 }
