@@ -73,13 +73,23 @@ public class MovieClass {
 
 
     public void MovieDisplay(){
-        System.out.println("Movie name is: " +getMovieName());
+       for (int i=0;i<5;i++){
+           System.out.println("Movie name is: " +MovieNames[i]);
+           System.out.println("Movie type is: " +MovieTypes[i]);
+           System.out.println("Movie duration is: " +MovieDurations[i]);
+           System.out.println("Movie director is: " +MovieDirectors[i]);
+           System.out.println("Movie IMDB is: " +MovieIMDBs[i]);
+           System.out.println("Movie description is: " +MovieDescriptions[i]);
+           System.out.println("Movie saloon has: " +MovieSeat[i]);
+           System.out.println("---------------------");
+       }
+        /*System.out.println("Movie name is: " +getMovieName());
         System.out.println("Movie type is: " +getMovieType());
         System.out.println("Movie duration is: " +getMovieDuration());
         System.out.println("Movie director is: " +getMovieDirector());
         System.out.println("Movie IMDB is: " +getMovieIMDB());
         System.out.println("Movie description is: " +getMovieDescription());
-        System.out.println("Movie saloon has: " +getMovieSeats());
+        System.out.println("Movie saloon has: " +getMovieSeats());*/
     }
 
     String[] MovieNames = new String[]{"Ready Player One","The Stolen Princess","Kaybedenler Kulubu","On Ikı Savascı", "Tomb Raider"};
@@ -88,7 +98,7 @@ public class MovieClass {
     String[] MovieDirectors = new String[]{"Steven Spielberg", "Oleh Malamuzh", "Mehmet Ada Öztekin", "Nicolai Fuglsig", "Roar Uthaug"};
     String[] MovieIMDBs = new String[]{"6.0","5.4","3.3","4.6","5.0"};
     String[] MovieDescriptions = new String[]{"Description1", "Description2", "Description3", "Description4", "Description5"};
-    String[] MovieSeats = new String[]{"50", "50", "60", "60", "50"};
+    String[] MovieSeat = new String[]{"50", "50", "60", "60", "50"};
 
     /*public void currentMovieList(){
         ArrayList<String> MovieList=new ArrayList<>(); //Creating Our Movie Array List
@@ -99,20 +109,4 @@ public class MovieClass {
         MovieList.add("Movie4");
         MovieList.add("Movie5");
     }*/
-
-
-
-
-
-
-
-
-
-    public static void main(String[] args){
-
-        System.out.println("sfasfsdds");
-
-
-    }
-
 }

@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class Login {
 
+    MovieClass movie = new MovieClass();
+
     private Scanner scan;
 
     private String newusername;
@@ -14,6 +16,9 @@ public class Login {
     private String username = "customer";
     private String password = "customerpw";
     private String LoginOrRegister;
+    private String customerdecision;
+    private String moviedecision;
+    private String seatdecision;
 
     private void Menu(){
         scan = new Scanner(System.in);
@@ -55,6 +60,22 @@ public class Login {
             System.out.println("Welcome, Customer!");
             System.out.println("You are logged in");
             System.out.println("Welcome the system");
+            System.out.println("1 to buy New Tickets,\n2 to Show Current Tickets");
+            customerdecision = scan.next();
+            if (customerdecision.equals("1"))
+                movie.MovieDisplay();
+            System.out.println("Write your film name:");
+            // TODO: Check film name from the database.
+            moviedecision = scan.next();
+            System.out.println("Write your seat number:");
+            // TODO: Check the available seats.
+            System.out.println("_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _");
+            seatdecision = scan.next();
+            System.out.println("You are redirecting to the payment page...");
+
+            if (customerdecision.equals("2")) {
+                // TODO: Connect to DB and show the tickets.
+            }
         }
         else{
             System.out.println("Wrong Login! Please check your login informations!");
@@ -65,10 +86,11 @@ public class Login {
     public static void main(String[] args) {
 
         Login login = new Login();
+
         String LoginOrRegister;
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Press 1 to login,\nPress 2 to register");
+        System.out.println("Press 1 to login\nPress 2 to register\nPress 3 to exit");
         LoginOrRegister = scanner.next();
         if (LoginOrRegister.equals("1"))
             login.LoginPrompt();
@@ -76,7 +98,8 @@ public class Login {
             login.CreateCustomer();
             login.LoginPrompt();
         }
-        else
-            System.out.println("You should type 1 or 2. Aborting...");
+        if (LoginOrRegister.equals("3")) {
+            System.exit(0);
+        }
     }
 }
