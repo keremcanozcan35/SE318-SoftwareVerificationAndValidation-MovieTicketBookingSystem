@@ -5,4 +5,4 @@
 * Login ability/menu added.
 * Admin Panel added.
 * Customer Panel added.
-* Templates for current films in the theatre
+* Templates for current films in the theatre.
