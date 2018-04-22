@@ -88,7 +88,6 @@ public class MovieClass {  //This is the MovieClass; that you can find the
             System.out.println("Movie director is: " + MovieDirectors[i]);
             System.out.println("Movie IMDB is: " + MovieIMDBs[i]);
             System.out.println("Movie description is: " + MovieDescriptions[i]);
-            System.out.println("Movie saloon has: " + MovieSeat[i]);
             System.out.println("---------------------");
         }
 

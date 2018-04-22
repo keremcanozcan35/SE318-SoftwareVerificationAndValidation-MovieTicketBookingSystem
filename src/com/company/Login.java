@@ -119,11 +119,12 @@ public class Login {  //This is the Login class; that the main screen of our pro
             stmt.executeQuery();
 
             if (stmt.executeQuery().next()) {
-                if (username.equals("admin") && password.equals("adminpw")) {  //It checkes the admin's username and password.
+                if (username.equals("admin")) {  //It checkes the admin's username and password.
                     System.out.println("Welcome, Admin!");
                     System.out.println("You are logged in");
                     System.out.println("Welcome the system");
-                    Menu();
+                    Admin admin = new Admin();
+                    admin.Menu();
                 } else {      //It checks the customer's username and password.
                     System.out.println("Welcome, " + username);
                     System.out.println("You are logged in");
