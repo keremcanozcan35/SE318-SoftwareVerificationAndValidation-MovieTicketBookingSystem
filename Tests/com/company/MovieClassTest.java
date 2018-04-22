@@ -62,5 +62,5 @@ public class MovieClassTest {
         MovieClass movieSeats = new MovieClass();
         movieSeats.setMovieSeats(5);
         assertEquals(5, movieSeats.getMovieSeats());
-    }
+    } //s
 }
