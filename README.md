@@ -12,5 +12,5 @@
 * Login via online database added.
 * Admin panel optimized for online transactions.
   * Online add / modify / delete for current films.
-* Customer will be optimized in v3.
+* Customer panel will be optimized for online transactions in v3.
 * Payment system will be added in v3.
