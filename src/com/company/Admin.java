@@ -10,7 +10,7 @@ public class Admin {
 
     //  Database credentials
     static final String USER = "movieuser";
-    static final String PASS = "!!se!!proje";
+    static final String PASS = "-";
 
     private Scanner scan;
     private String decision;
