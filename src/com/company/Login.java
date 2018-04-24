@@ -14,7 +14,7 @@ public class Login {  //This is the Login class; that the main screen of our pro
 
     //  Database credentials
     static final String USER = "movieuser";
-    static final String PASS = "!!se!!proje";
+    static final String PASS = "-";
 
     MovieClass movie = new MovieClass();
 
