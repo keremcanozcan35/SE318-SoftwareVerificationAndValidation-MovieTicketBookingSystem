@@ -4,8 +4,6 @@
     <root id="archive" name="MovieTicketSystemProject.jar">
       <element id="module-output" name="MovieTicketSystemProject" />
       <element id="module-test-output" name="MovieTicketSystemProject" />
-      <element id="extracted-dir" path="D:/ojdbc6.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="D:/mysql-connector-java-8.0.11.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/lib/junit-4.12.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$APPLICATION_HOME_DIR$/lib/hamcrest-core-1.3.jar" path-in-jar="/" />
     </root>

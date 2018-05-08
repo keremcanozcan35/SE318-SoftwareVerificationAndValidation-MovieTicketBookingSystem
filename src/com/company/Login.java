@@ -1,9 +1,6 @@
 package com.company;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 
 public class Login {  //This is the Login class; that the main screen of our program.
@@ -16,6 +13,7 @@ public class Login {  //This is the Login class; that the main screen of our pro
     static final String USER = "movieuser";
     static final String PASS = "-";
 
+    Customer customer = new Customer();
     MovieClass movie = new MovieClass();
 
     private Scanner scan;
@@ -132,10 +130,32 @@ public class Login {  //This is the Login class; that the main screen of our pro
                     System.out.println("1 to buy New Tickets,\n2 to Show Current Tickets");
                     customerdecision = scan.next();
                     if (customerdecision.equals("1"))
-                        movie.MovieDisplay();
+                        customer.listFilms();
                     System.out.println("Write your film name:");
                     // TODO: Check film name from the database.
                     moviedecision = scan.next();
+
+                    PreparedStatement stmt2 = null;
+
+                    try {
+                        String query2 = "SELECT id FROM Movies WHERE name = ?";
+                        stmt2 = conn.prepareStatement(query2);
+                        stmt2.setString(1, moviedecision);
+                        ResultSet rs2 = stmt2.executeQuery(query2);
+                        int id = rs2.getInt("ID");
+                    } catch (Exception exc) {
+                        exc.printStackTrace();
+                    } finally {
+                        if (stmt2 != null) {
+                            stmt2.close();
+                        }
+
+                        if (conn != null) {
+                            conn.close();
+                        }
+
+                    }
+
                     System.out.println("Write your seat number:");
                     // TODO: Check the available seats.
                     System.out.println("_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _");
