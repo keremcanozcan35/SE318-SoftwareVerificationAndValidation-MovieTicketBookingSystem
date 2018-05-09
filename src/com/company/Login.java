@@ -14,7 +14,6 @@ public class Login {  //This is the Login class; that the main screen of our pro
     static final String PASS = "-";
 
     Customer customer = new Customer();
-    MovieClass movie = new MovieClass();
 
     private Scanner scan;
 
@@ -129,39 +128,10 @@ public class Login {  //This is the Login class; that the main screen of our pro
                     System.out.println("Welcome the system");
                     System.out.println("1 to buy New Tickets,\n2 to Show Current Tickets");
                     customerdecision = scan.next();
-                    if (customerdecision.equals("1"))
-                        customer.listFilms();
-                    System.out.println("Write your film name:");
-                    // TODO: Check film name from the database.
-                    moviedecision = scan.next();
-
-                    PreparedStatement stmt2 = null;
-
-                    try {
-                        String query2 = "SELECT id FROM Movies WHERE name = ?";
-                        stmt2 = conn.prepareStatement(query2);
-                        stmt2.setString(1, moviedecision);
-                        ResultSet rs2 = stmt2.executeQuery(query2);
-                        int id = rs2.getInt("ID");
-                    } catch (Exception exc) {
-                        exc.printStackTrace();
-                    } finally {
-                        if (stmt2 != null) {
-                            stmt2.close();
-                        }
-
-                        if (conn != null) {
-                            conn.close();
-                        }
-
+                    if (customerdecision.equals("1")) {
+                        customer.ListFilms();
+                        customer.BuyTicket();
                     }
-
-                    System.out.println("Write your seat number:");
-                    // TODO: Check the available seats.
-                    System.out.println("_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _\n_ _ _ _ _");
-                    seatdecision = scan.next();
-                    System.out.println("You are redirecting to the payment page...");
-
                     if (customerdecision.equals("2")) {
                         // TODO: Connect to DB and show the tickets.
                     }
@@ -170,7 +140,6 @@ public class Login {  //This is the Login class; that the main screen of our pro
                 System.out.println("Wrong Login! Please check your login informations!");
                 LoginPrompt();
             }
-
 
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -189,9 +158,40 @@ public class Login {  //This is the Login class; that the main screen of our pro
         }
     }
 
+    public void ListCustomerTickets() throws SQLException, ClassNotFoundException {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            Class.forName("com.mysql.jdbc.Connection");
+        } catch (Exception ex) {
+        }
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+            String query = "SELECT * FROM Payments WHERE user = ?";
+            PreparedStatement stmt3 = null;
+            stmt3 = conn.prepareStatement(query);
+            stmt3.setString(1, username);
+            stmt3.executeQuery();
+            ResultSet rs = stmt3.executeQuery(query);
+
+            while (rs.next()) {
+                String filmname = rs.getString("filmname");
+                String filmseat = rs.getString("filmseat");
+                System.out.println("Film Name: " + filmname + "\n" + "Seat Number: " + filmseat);
+                System.out.println("----------------------------------------------------");
+            }
+        }catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+        }
+    }
+
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {  //This is the our Main class.
-
 
         Login login = new Login();
 

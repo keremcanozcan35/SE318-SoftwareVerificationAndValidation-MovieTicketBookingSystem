@@ -1,7 +1,10 @@
 package com.company;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 public class Customer {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -11,10 +14,23 @@ public class Customer {
     static final String USER = "movieuser";
     static final String PASS = "-";
 
+    private String filmname2;
+    private Integer seatdecision;
+    private String username;
+
+    private Integer cardnumber;
+    private String cardexpire;
+    private Integer cardcvv;
+
+    List<Integer> seatarray = new ArrayList<Integer>();
+    Iterator<Integer> myListIterator = seatarray.iterator();
+    private String[] rows = new String[50];
+
+    private Scanner scan;
+
+
     public void Payment() {
         //TODO: Payment tablosunun içinde film adı uyuşan bütün girdilerinin koltuk numaralarını topla(while rs.next)
-        //TODO: 5 ten büyük ve 10dan küçükse array2 ye at,0 ile 5 arasındaysa array1 olcak, koltuğu numarasını ait oldugu arraydaki alt çizgiyi X ile replace edilcek.
-        //TODO: bütün arrayleri alt altta listele
         System.out.println("Please choose your seat!");
         //TODO: seati database payment tablosunun koltuk şeyini hazırla(Kredi kartını almadan hazırlama)
         System.out.println("Credit card number: ");
@@ -24,7 +40,90 @@ public class Customer {
 
     }
 
-    public void listFilms() {
+    public void BuyTicket() throws NullPointerException, SQLException, ClassNotFoundException {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            Class.forName("com.mysql.jdbc.Connection");
+        } catch (Exception ex) {
+        }
+        try {
+            System.out.println("Please Write Film Name:");
+            filmname2 = scan.next();
+
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            String query = "SELECT filmseat FROM Payment WHERE filmname = ?";
+            stmt = conn.prepareStatement(query);
+
+            stmt.setString(1, filmname2);
+            //stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                int filmseat = rs.getInt("filmseat");
+                seatarray.add(filmseat);
+            }
+            for (int n=0;n<50;n++)
+                rows[n] = "_";
+            while (myListIterator.hasNext()){
+                rows[myListIterator.next()] = "X";
+            }
+            for(int z=4;z<50;z+=5)
+                rows[z] = rows[z]+"\n";
+
+            System.out.println("Write your card number:");
+            cardnumber = scan.nextInt();
+            while (String.valueOf(cardnumber).length() < 16) {
+                System.out.println("Wrong number. Please re-write your card number:");
+                cardnumber = scan.nextInt();
+            }
+
+            System.out.println("Write your card expire date: e.g (08/20)");
+            cardexpire = scan.next();
+            int expire = Integer.parseInt(cardexpire.split("/")[1]);
+            while (expire < 18){
+                System.out.println("Wrong number. Please re-write your card expire date:");
+                cardexpire = scan.next();
+                expire = Integer.parseInt(cardexpire.split("/")[1]);
+            }
+
+            System.out.println("Write your card CVV:");
+            cardcvv = scan.nextInt();
+            while (cardcvv < 100){
+                System.out.println("Wrong number. Please re-write your card CVV:");
+                cardcvv = scan.nextInt();
+            }
+
+
+            System.out.println("Available places are '_' . Please write your seat number:");
+            seatdecision = scan.nextInt();
+
+            System.out.println("Please re-write your username for validation:");
+            username = scan.next();
+
+            String query2 = "insert into Payment(user, filmname, filmseat, cardnumber, cardexpire, cardcvv)" + "values(?, ?, ?, ?, ?, ?)";
+            stmt = conn.prepareStatement(query);
+
+            stmt.setString(1, username);
+            stmt.setString(2, filmname2);
+            stmt.setInt(3, seatdecision);
+            stmt.setInt(4, cardnumber);
+            stmt.setString(5, cardexpire);
+            stmt.setInt(6, cardcvv);
+            stmt.executeUpdate();
+
+            System.out.println("Payment Successfully Completed.");
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        } finally {
+            if (conn != null) {
+                conn.close();
+            }
+        }
+    }
+
+    public void ListFilms() throws SQLException, ClassNotFoundException {
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
@@ -57,6 +156,5 @@ public class Customer {
                 conn.close();
             }
         }
-        System.out.println("\n\n");
     }
 }
