@@ -10,11 +10,10 @@ public class Admin {
 
     //  Database credentials
     static final String USER = "movieuser";
-    static final String PASS = "-";
-
+    static final String PASS = "-"
     private Scanner scan;
     private String decision;
-    private String moviename,movietype,movieduration,moviedirector,movieimdb,moviedescription,movieseats;
+    private String moviename, movietype, movieduration, moviedirector, movieimdb, moviedescription, movieseats;
     private int movieid;
 
 
@@ -97,7 +96,7 @@ public class Admin {
                 String director = rs.getString("Director");
                 String imdb = rs.getString("IMDB");
                 String description = rs.getString("Description");
-                System.out.println("ID: "+id+"\n"+"Name: "+name+"\n"+"Type: "+type+"\n"+"Duration: "+duration+"\n"+"Director: "+director+"\n"+"IMDB: "+imdb+"\n"+"Description: "+description);
+                System.out.println("ID: " + id + "\n" + "Name: " + name + "\n" + "Type: " + type + "\n" + "Duration: " + duration + "\n" + "Director: " + director + "\n" + "IMDB: " + imdb + "\n" + "Description: " + description);
                 System.out.println("----------------------------------------------------");
             }
 
@@ -175,7 +174,7 @@ public class Admin {
                 String director = rs.getString("Director");
                 String imdb = rs.getString("IMDB");
                 String description = rs.getString("Description");
-                System.out.println("ID: "+id+"\n"+"Name: "+name+"\n"+"Type: "+type+"\n"+"Duration: "+duration+"\n"+"Director: "+director+"\n"+"IMDB: "+imdb+"\n"+"Description: "+description);
+                System.out.println("ID: " + id + "\n" + "Name: " + name + "\n" + "Type: " + type + "\n" + "Duration: " + duration + "\n" + "Director: " + director + "\n" + "IMDB: " + imdb + "\n" + "Description: " + description);
                 System.out.println("----------------------------------------------------");
             }
 
@@ -229,7 +228,7 @@ public class Admin {
                 String director = rs.getString("Director");
                 String imdb = rs.getString("IMDB");
                 String description = rs.getString("Description");
-                System.out.println("ID: "+id+"\n"+"Name: "+name+"\n"+"Type: "+type+"\n"+"Duration: "+duration+"\n"+"Director: "+director+"\n"+"IMDB: "+imdb+"\n"+"Description: "+description);
+                System.out.println("ID: " + id + "\n" + "Name: " + name + "\n" + "Type: " + type + "\n" + "Duration: " + duration + "\n" + "Director: " + director + "\n" + "IMDB: " + imdb + "\n" + "Description: " + description);
                 System.out.println("----------------------------------------------------");
             }
 
@@ -255,19 +254,18 @@ public class Admin {
         System.out.println("3- Delete a movie");
         System.out.println("4- Show movies");
         decision = scan.next();
-        if(decision.equals("1")){
+        if (decision.equals("1")) {
             AddMovie();
         }
-        if(decision.equals("2")){
+        if (decision.equals("2")) {
             ModifyMovie();
         }
-        if(decision.equals("3")){
+        if (decision.equals("3")) {
             DeleteMovie();
         }
-        if(decision.equals("4")){
+        if (decision.equals("4")) {
             ShowMovie();
-        }
-        else{
+        } else {
             Menu();
         }
     }

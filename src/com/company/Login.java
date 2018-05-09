@@ -133,11 +133,44 @@ public class Login {  //This is the Login class; that the main screen of our pro
                         customer.BuyTicket();
                     }
                     if (customerdecision.equals("2")) {
-                        // TODO: Connect to DB and show the tickets.
+                        //System.out.println(username);
+
+                        Connection conn5 = null;
+                        PreparedStatement stmt5 = null;
+                        try {
+                            Class.forName("com.mysql.jdbc.Connection");
+                        } catch (Exception ex) {
+                        }
+                        try {
+                            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+                            String query5 = "SELECT * FROM Payment WHERE user = ?;";
+
+                            stmt5 = conn.prepareStatement(query5);
+
+                            stmt5.setString(1, username);
+                            ResultSet rs = stmt5.executeQuery();
+
+                            while (rs.next()) {
+                                int filmseat5 = rs.getInt("filmseat");
+                                String filmname5 = rs.getString("filmname");
+                                System.out.println("----------------------------------------------------");
+                                System.out.println("Seat Number: " + filmseat5 + "\n" + "Film Name: " + filmname5 + "\n");
+                                System.out.println("----------------------------------------------------");
+                            }
+
+                        } catch (Exception exc) {
+                            exc.printStackTrace();
+                        } finally {
+                            if (conn != null) {
+                                conn.close();
+                            }
+                        }
+                        System.out.println("\n\n");
                     }
                 }
             } else {
-                System.out.println("Wrong Login! Please check your login informations!");
+                System.out.println("Wrong Login! Please check your login information!");
                 LoginPrompt();
             }
 
@@ -156,6 +189,7 @@ public class Login {  //This is the Login class; that the main screen of our pro
                 scanner.close();
             }
         }
+
     }
 
     public void ListCustomerTickets() throws SQLException, ClassNotFoundException {
@@ -181,7 +215,7 @@ public class Login {  //This is the Login class; that the main screen of our pro
                 System.out.println("Film Name: " + filmname + "\n" + "Seat Number: " + filmseat);
                 System.out.println("----------------------------------------------------");
             }
-        }catch (Exception exc) {
+        } catch (Exception exc) {
             exc.printStackTrace();
         } finally {
             if (conn != null) {
