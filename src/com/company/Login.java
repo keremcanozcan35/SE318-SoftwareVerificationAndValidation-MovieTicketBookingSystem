@@ -128,11 +128,13 @@ public class Login {  //This is the Login class; that the main screen of our pro
                     System.out.println("Welcome the system");
                     System.out.println("1 to buy New Tickets,\n2 to Show Current Tickets");
                     customerdecision = scan.next();
+
                     if (customerdecision.equals("1")) {
                         customer.ListFilms();
                         customer.BuyTicket();
                     }
                     if (customerdecision.equals("2")) {
+
                         //System.out.println(username);
 
                         Connection conn5 = null;
@@ -189,7 +191,6 @@ public class Login {  //This is the Login class; that the main screen of our pro
                 scanner.close();
             }
         }
-
     }
 
     public void ListCustomerTickets() throws SQLException, ClassNotFoundException {

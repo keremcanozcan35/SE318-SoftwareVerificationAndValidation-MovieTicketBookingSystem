@@ -3,7 +3,7 @@ package com.company;
 import java.sql.*;
 import java.util.*;
 
-public class Customer {
+        public class Customer {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://80.211.16.77/movie";
 
@@ -27,6 +27,8 @@ public class Customer {
         System.out.println("Expired date of your card: ");
         System.out.println("CCV: ");
     }
+
+
 
     public void BuyTicket() throws ConcurrentModificationException, NullPointerException, SQLException, ClassNotFoundException {
         List<Integer> seatarray = new ArrayList<>();
@@ -88,10 +90,15 @@ public class Customer {
                 System.out.println("Wrong number. Please re-write your card CVV:");
                 cardcvv = scan.next();
             }
+
             System.out.println(Arrays.toString(rows));
             System.out.println("Available places are '_' . Please write your seat number:");
             seatdecision = scan.nextInt();
-            //seatdecision=seatdecision;
+            while(rows[seatdecision-1]!= "_" ){
+                System.out.println("Try Again! Available places are '_' . Please write your seat number:");
+                seatdecision = scan.nextInt();
+            }
+
 
             System.out.println("Please re-write your username for validation:");
             username = scan.next();
