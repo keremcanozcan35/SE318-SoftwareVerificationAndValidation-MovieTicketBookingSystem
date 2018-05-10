@@ -63,7 +63,7 @@ public class Customer {
             //    rows[myListIterator.next()] = "X";
             //}
             for (Iterator<Integer> myListIterator = seatarray.iterator(); myListIterator.hasNext(); ) {
-                rows[myListIterator.next()] = "X";
+                rows[myListIterator.next()-1] = "X";
             }
             for (int z = 4; z < 50; z += 5)
                 rows[z] = rows[z] + "\n";
@@ -91,7 +91,7 @@ public class Customer {
             System.out.println(Arrays.toString(rows));
             System.out.println("Available places are '_' . Please write your seat number:");
             seatdecision = scan.nextInt();
-            seatdecision -= seatdecision;
+            //seatdecision=seatdecision;
 
             System.out.println("Please re-write your username for validation:");
             username = scan.next();
