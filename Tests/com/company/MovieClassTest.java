@@ -35,8 +35,8 @@ public class MovieClassTest {
     @Test
     public void testGetMovieDirector() {
         MovieClass movieDirector = new MovieClass();
-        movieDirector.setMovieDirector("Kerem Can Özcan");
-        assertEquals("Kerem Can Özcan", movieDirector.getMovieDirector());
+        movieDirector.setMovieDirector("Sener Sen");
+        assertEquals("Sener Sen", movieDirector.getMovieDirector());
 
     }
 
@@ -88,8 +88,8 @@ public class MovieClassTest {
     @Test
     public void testGetMovieDirector2() {
         MovieClass movieDirector = new MovieClass();
-        movieDirector.setMovieDirector("Kerem Can Özcan");
-        assertFalse("METin metin", false);
+        movieDirector.setMovieDirector("Sener Sen");
+        assertFalse("Kemal Sunal", false);
 
     }
 
@@ -111,6 +111,6 @@ public class MovieClassTest {
     public void testGetMovieSeats2(){
         MovieClass movieSeats = new MovieClass();
         movieSeats.setMovieSeats(5);
-        assertFalse("KEREMCANOZCAN",false);
+        assertFalse("YOK",false);
     }
 }
