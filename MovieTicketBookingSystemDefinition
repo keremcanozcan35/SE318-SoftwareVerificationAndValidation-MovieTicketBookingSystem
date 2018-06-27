@@ -1,0 +1,95 @@
+MOVIE TICKET BOOKING SYSTEM
+
+Going to cinemas has been the culture of almost all the families of today’s generation. It
+is a time when the family can spend some time altogether by stealing some hours from
+their busy schedule. Cinemas help in contributing in our daily memories as they provide
+an essential part of our culture.
+Movie ticket booking is an application that allows the movie theatre owner and the viewers
+to handle all the cinema activities quickly and safely. Using Interactive GUI anyone can
+quickly learn to use the complete system.
+By using this system the owner doesn’t have to sit and manage the entire activities on
+paper. And at the same time, owner will feel comfortable to keep a check on the cinema.
+This system will give them power and flexibility to manage the entire system from a single
+application.
+Movie ticket booking reservation provides ticket bookings for the film, seat management,
+ticket cancellation and payment services. The system will be so simple and attractive
+which will make the audiences/viewers comfortable to use and choose their movie along
+with desired seat no and seat position.
+The system allows the Owner to check the Progress of ticket reservation from interactive
+Graphs. The system allows the owner to keep track on available seats for a particular
+movie and even maintain various details of the audiences.
+Viewers can view the movies which are being shown in the theatre or the ones which are
+going to be released for a short while along with their show timings and also book the
+tickets online through online payments using various payment gateways like
+ATM/Credit/Debit cards.
+
+MODULES OF MOVIE TICKET BOOKING SYSTEM:
+
+Owner Profile:
+
+The owner has full access to the system. The owner can graphically view all the details,
+and he has the authority to change the Cost of tickets, ticket Availability and much more.
+The owner is provided with an id and password.
+He can put various kinds of notifications. He can also check the details of seats left and
+seats reserved. He can also monitor the transactions made throughout the day and the
+month and an algorithm will check the progress in the booking of tickets.
+He also can give various kinds of offers to the viewers. He can also keep some seats
+hidden from the users for their offline reservation. He can add new movies and their show
+timings. Also, he can delete some videos.
+
+Viewer Profile:
+
+In Viewer profile, the viewer can check the availability of tickets and their category. The
+category can be silver, gold or platinum and they can also book their ticket according to
+their budget and need. Viewer profile contains their name, Contact details, address, and
+other necessary personal data, etc.
+They need to sign-up for booking the movie ticket, which will make them as well as the
+manager or the owner of the hall to interact with each other easily. They can pay the
+amount Online, and if they need to make payment Offline, they must deposit some
+advance amount to confirm their movie ticket.
+
+Manager Profile:
+
+In Manager Profile, who so ever is the Manager he must log-in and then he can book the
+tickets of the film for the viewers, and this will serve the viewers in offline mode.
+When he will log-in into the system, his attendance will be taken, and it will be easy for
+the owner to monitor them. Here they will also get a notification of booked room so that
+they can beforehand maintain the place.
+
+Ticket Booking:
+
+The viewer can quickly search for the desired movie and the number of seats from the
+various options available.This all will be so user-friendly that the audience will not find any
+trouble in booking the movie ticket.
+Once the available movies are searched, and viewer finds the movie of his choice then
+this module helps the audience to book the film. If everything is done properly, he will be
+asked to pay partial or complete money. And then he will be forwarded to Payment
+Gateway where he can quickly pay Online.
+
+Movie module:
+
+This module will help the viewer to see the details of the movies available for the show.
+He can even search for any specific film. The number of seats available will be displayed
+to the viewer along with their timings and the cost of different types of tickets.
+Then he can reserve the required tickets. The information of upcoming movies will also
+be displayed to the viewers.
+
+Hall module:
+
+It deals with the information of the rooms available for the video shows.Some multiplexes
+are there.In each multiplex four buildings are there, so the reservation of tickets goes
+according to the availability of seats in the multiplexes.
+
+Payment Details:
+
+After filling the details like the name of the movie, category of cards, the timings of the
+show and the number of seats to be reserved, the viewers need to pay the money using
+different options available like cash/net banking/ATM card/credit/debit card.
+Payment portal would use a payment gateway to remove the fees. Once payment will
+clear receipt of payment will be generated automatically and the message will be sent to
+the viewer on his mobile.
+Once payment will clear receipt of payment will be created automatically and the message
+will be directed to the viewer on his mobile.
+Add / update / delete movie / Booking Details:
+The owner can also easily add, update, or delete the movie, its show timings and the cost
+of different categories of the tickets.
